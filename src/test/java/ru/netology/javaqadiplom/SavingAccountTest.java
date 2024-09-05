@@ -25,6 +25,7 @@ public class SavingAccountTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             SavingAccount account = new SavingAccount(initialBalance, minBalance, maxBalance, rate);
         });
+
     }
 
     @Test
