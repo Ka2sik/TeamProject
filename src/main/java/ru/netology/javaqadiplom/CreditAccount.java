@@ -28,7 +28,7 @@ public class CreditAccount extends Account {
                     "Кредитный лимит не может быть отрицательным, а у вас: " + creditLimit
             );
         }
-        if (rate <= 0) {
+        if (rate < 0) {
             throw new IllegalArgumentException(
                     "Накопительная ставка не может быть отрицательной, а у вас: " + rate
             );

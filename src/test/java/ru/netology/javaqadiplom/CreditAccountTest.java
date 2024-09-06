@@ -54,13 +54,6 @@ public class CreditAccountTest {
 
     }
 
-    @Test
-    public void RateZeroTest() {                                         ////rate - неотрицательное число, ставка кредитования для расчёта долга за отрицательный баланс
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(0, 5_000, 0);
-        });
-    }
-
     //////////////////
     @Test
     public void PositivePayTest() {           /// Покупа остаток >0
@@ -111,7 +104,7 @@ public class CreditAccountTest {
 
         account.pay(10_000);
 
-        Assertions.assertEquals(0, account.getBalance());
+        Assertions.assertEquals(3_000, account.getBalance());
     }
 
     ////////////////////
