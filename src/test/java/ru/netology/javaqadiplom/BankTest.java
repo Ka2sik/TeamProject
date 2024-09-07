@@ -9,7 +9,7 @@ class BankTest {
     int initialBalanceAcc1 = 15_000;
     int initialBalanceAcc2 = 1_000;
 
-    Account acc1 = new SavingAccount(initialBalanceAcc1, 0, 60_000, 5);
+    Account acc1 = new SavingAccount(initialBalanceAcc1, 1_000, 60_000, 5);
     Account acc2 = new CreditAccount(initialBalanceAcc2, 50_000, 15);
 
     @Test
@@ -67,5 +67,12 @@ class BankTest {
         Assertions.assertEquals(initialBalanceAcc1, acc1.getBalance());
         Assertions.assertEquals(initialBalanceAcc2, acc2.getBalance());
     }
+
+    @Test
+    public void shouldNotTransferMoneyFromSavingAccIfBalanceWillBeLessThanMinBalance() {
+        int amount = 15_000;
+        Assertions.assertFalse(bank.transfer(acc1, acc2, amount));
+        Assertions.assertEquals(initialBalanceAcc1, acc1.getBalance());
+        Assertions.assertEquals(initialBalanceAcc2, acc2.getBalance());
+    }
 }
-  
