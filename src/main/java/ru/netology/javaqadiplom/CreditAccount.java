@@ -78,7 +78,7 @@ public class CreditAccount extends Account {
         if (amount <= 0) {
             return false;
         }
-        balance = amount;
+        balance =balance + amount;
         return true;
     }
 

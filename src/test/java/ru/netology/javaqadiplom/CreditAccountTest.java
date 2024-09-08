@@ -17,6 +17,18 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+    @Test
+    public void shouldAddToPositiveBalanceMoreNull() {              /// Позитивный тест(пополение суммы при любом балансе кроме 0)
+        CreditAccount account = new CreditAccount(
+                1_000,
+                5_000,
+                15
+        );
+
+        account.add(3_000);
+
+        Assertions.assertEquals(4_000, account.getBalance());
+    }
 
     @Test
     public void addToNegativeBalance() {                    /// Негативный тест(пополение баланса суммой <0)
